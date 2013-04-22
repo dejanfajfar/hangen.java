@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="hangen.java" default="all">
+  
+  
+  <property file="build.properties"/>
+  <!-- Uncomment the following property if no tests compilation is needed -->
+  <!-- 
+  <property name="skip.tests" value="true"/>
+   -->
+  
+  <!-- Compiler options -->
+  
+  <property name="compiler.debug" value="on"/>
+  <property name="compiler.generate.no.warnings" value="off"/>
+  <property name="compiler.args" value=""/>
+  <property name="compiler.max.memory" value="128m"/>
+  <patternset id="ignored.files">
+    <exclude name="**/CVS/**"/>
+    <exclude name="**/SCCS/**"/>
+    <exclude name="**/RCS/**"/>
+    <exclude name="**/rcs/**"/>
+    <exclude name="**/.DS_Store/**"/>
+    <exclude name="**/.svn/**"/>
+    <exclude name="**/.pyc/**"/>
+    <exclude name="**/.pyo/**"/>
+    <exclude name="**/*.pyc/**"/>
+    <exclude name="**/*.pyo/**"/>
+    <exclude name="**/.git/**"/>
+    <exclude name="**/*.hprof/**"/>
+    <exclude name="**/_svn/**"/>
+    <exclude name="**/.hg/**"/>
+    <exclude name="**/*.lib/**"/>
+    <exclude name="**/*~/**"/>
+    <exclude name="**/__pycache__/**"/>
+    <exclude name="**/.bundle/**"/>
+    <exclude name="**/*.rbc/**"/>
+  </patternset>
+  <patternset id="library.patterns">
+    <include name="*.zip"/>
+    <include name="*.apk"/>
+    <include name="*.war"/>
+    <include name="*.egg"/>
+    <include name="*.ear"/>
+    <include name="*.ane"/>
+    <include name="*.swc"/>
+    <include name="*.jar"/>
+  </patternset>
+  <patternset id="compiler.resources">
+    <exclude name="**/?*.java"/>
+    <exclude name="**/?*.form"/>
+    <exclude name="**/?*.class"/>
+    <exclude name="**/?*.groovy"/>
+    <exclude name="**/?*.scala"/>
+    <exclude name="**/?*.flex"/>
+    <exclude name="**/?*.kt"/>
+    <exclude name="**/?*.clj"/>
+  </patternset>
+  
+  <!-- Modules -->
+  
+  
+  <!-- Module com.fajfar.hangen -->
+  
+  <dirname property="module.com.fajfar.hangen.basedir" file="${ant.file}"/>
+  
+  
+  
+  <property name="compiler.args.com.fajfar.hangen" value="${compiler.args}"/>
+  
+  <property name="com.fajfar.hangen.output.dir" value="${module.com.fajfar.hangen.basedir}/out/production/com.fajfar.hangen"/>
+  <property name="com.fajfar.hangen.testoutput.dir" value="${module.com.fajfar.hangen.basedir}/out/test/com.fajfar.hangen"/>
+  
+  <path id="com.fajfar.hangen.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="com.fajfar.hangen.module.production.classpath"/>
+  
+  <path id="com.fajfar.hangen.runtime.production.module.classpath">
+    <pathelement location="${com.fajfar.hangen.output.dir}"/>
+  </path>
+  
+  <path id="com.fajfar.hangen.module.classpath">
+    <pathelement location="${com.fajfar.hangen.output.dir}"/>
+  </path>
+  
+  <path id="com.fajfar.hangen.runtime.module.classpath">
+    <pathelement location="${com.fajfar.hangen.testoutput.dir}"/>
+    <pathelement location="${com.fajfar.hangen.output.dir}"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.com.fajfar.hangen">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.com.fajfar.hangen">
+    <patternset refid="excluded.from.module.com.fajfar.hangen"/>
+  </patternset>
+  
+  <path id="com.fajfar.hangen.module.sourcepath">
+    <dirset dir="${module.com.fajfar.hangen.basedir}/hangen">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.com.fajfar.hangen" depends="compile.module.com.fajfar.hangen.production,compile.module.com.fajfar.hangen.tests" description="Compile module com.fajfar.hangen"/>
+  
+  <target name="compile.module.com.fajfar.hangen.production" description="Compile module com.fajfar.hangen; production classes">
+    <mkdir dir="${com.fajfar.hangen.output.dir}"/>
+    <javac destdir="${com.fajfar.hangen.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true">
+      <compilerarg line="${compiler.args.com.fajfar.hangen}"/>
+      <bootclasspath refid="com.fajfar.hangen.module.bootclasspath"/>
+      <classpath refid="com.fajfar.hangen.module.production.classpath"/>
+      <src refid="com.fajfar.hangen.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.com.fajfar.hangen"/>
+    </javac>
+    
+    <copy todir="${com.fajfar.hangen.output.dir}">
+      <fileset dir="${module.com.fajfar.hangen.basedir}/hangen/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.com.fajfar.hangen.tests" depends="compile.module.com.fajfar.hangen.production" description="compile module com.fajfar.hangen; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.com.fajfar.hangen" description="cleanup module">
+    <delete dir="${com.fajfar.hangen.output.dir}"/>
+    <delete dir="${com.fajfar.hangen.testoutput.dir}"/>
+  </target>
+  
+  
+  <!-- Module hangen -->
+  
+  <dirname property="module.hangen.basedir" file="${ant.file}"/>
+  
+  
+  
+  <property name="compiler.args.hangen" value="${compiler.args}"/>
+  
+  <property name="hangen.output.dir" value="${module.hangen.basedir}/out/production/hangen"/>
+  <property name="hangen.testoutput.dir" value="${module.hangen.basedir}/out/test/hangen"/>
+  
+  <path id="hangen.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="hangen.module.production.classpath"/>
+  
+  <path id="hangen.runtime.production.module.classpath">
+    <pathelement location="${hangen.output.dir}"/>
+  </path>
+  
+  <path id="hangen.module.classpath">
+    <pathelement location="${hangen.output.dir}"/>
+  </path>
+  
+  <path id="hangen.runtime.module.classpath">
+    <pathelement location="${hangen.testoutput.dir}"/>
+    <pathelement location="${hangen.output.dir}"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.hangen">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.hangen">
+    <patternset refid="excluded.from.module.hangen"/>
+  </patternset>
+  
+  
+  <target name="compile.module.hangen" depends="compile.module.hangen.production,compile.module.hangen.tests" description="Compile module hangen"/>
+  
+  <target name="compile.module.hangen.production" description="Compile module hangen; production classes"/>
+  
+  <target name="compile.module.hangen.tests" depends="compile.module.hangen.production" description="compile module hangen; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.hangen" description="cleanup module">
+    <delete dir="${hangen.output.dir}"/>
+    <delete dir="${hangen.testoutput.dir}"/>
+  </target>
+  
+  <target name="init" description="Build initialization">
+    <!-- Perform any build initialization in this target -->
+  </target>
+  
+  <target name="clean" depends="clean.module.com.fajfar.hangen, clean.module.hangen" description="cleanup all"/>
+  
+  <target name="build.modules" depends="init, clean, compile.module.com.fajfar.hangen, compile.module.hangen" description="build all modules"/>
+  
+  <target name="all" depends="build.modules" description="build all"/>
+</project>
