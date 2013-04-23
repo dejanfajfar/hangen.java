@@ -217,4 +217,5 @@
   <target name="build.modules" depends="init, clean, compile.module.com.fajfar.hangen, compile.module.hangen" description="build all modules"/>
   
   <target name="all" depends="build.modules" description="build all"/>
+  <target name="test" depends="build.modules" description="should run the all unit tests"/>
 </project>
