@@ -82,11 +82,13 @@
   
   <path id="com.fajfar.hangen.module.classpath">
     <pathelement location="${com.fajfar.hangen.output.dir}"/>
+    <pathelement location="${idea.home}/lib/junit-4.10.jar"/>
   </path>
   
   <path id="com.fajfar.hangen.runtime.module.classpath">
     <pathelement location="${com.fajfar.hangen.testoutput.dir}"/>
     <pathelement location="${com.fajfar.hangen.output.dir}"/>
+    <pathelement location="${idea.home}/lib/junit-4.10.jar"/>
   </path>
   
   
@@ -101,6 +103,12 @@
   <path id="com.fajfar.hangen.module.sourcepath">
     <dirset dir="${module.com.fajfar.hangen.basedir}/hangen">
       <include name="src"/>
+    </dirset>
+  </path>
+  
+  <path id="com.fajfar.hangen.module.test.sourcepath">
+    <dirset dir="${module.com.fajfar.hangen.basedir}/hangen">
+      <include name="test"/>
     </dirset>
   </path>
   
@@ -125,7 +133,23 @@
     </copy>
   </target>
   
-  <target name="compile.module.com.fajfar.hangen.tests" depends="compile.module.com.fajfar.hangen.production" description="compile module com.fajfar.hangen; test classes" unless="skip.tests"/>
+  <target name="compile.module.com.fajfar.hangen.tests" depends="compile.module.com.fajfar.hangen.production" description="compile module com.fajfar.hangen; test classes" unless="skip.tests">
+    <mkdir dir="${com.fajfar.hangen.testoutput.dir}"/>
+    <javac destdir="${com.fajfar.hangen.testoutput.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true">
+      <compilerarg line="${compiler.args.com.fajfar.hangen}"/>
+      <bootclasspath refid="com.fajfar.hangen.module.bootclasspath"/>
+      <classpath refid="com.fajfar.hangen.module.classpath"/>
+      <src refid="com.fajfar.hangen.module.test.sourcepath"/>
+      <patternset refid="excluded.from.compilation.com.fajfar.hangen"/>
+    </javac>
+    
+    <copy todir="${com.fajfar.hangen.testoutput.dir}">
+      <fileset dir="${module.com.fajfar.hangen.basedir}/hangen/test">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
   
   <target name="clean.module.com.fajfar.hangen" description="cleanup module">
     <delete dir="${com.fajfar.hangen.output.dir}"/>
@@ -193,6 +217,4 @@
   <target name="build.modules" depends="init, clean, compile.module.com.fajfar.hangen, compile.module.hangen" description="build all modules"/>
   
   <target name="all" depends="build.modules" description="build all"/>
-
-  <target name="test" depends="build.modules" description="Test build" />
 </project>
