@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/hangen/com.fajfar.hangen.iml" filepath="$PROJECT_DIR$/hangen/com.fajfar.hangen.iml" />
-      <module fileurl="file://$PROJECT_DIR$/hangen/hangen.iml" filepath="$PROJECT_DIR$/hangen/hangen.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hangen.java.iml" filepath="$PROJECT_DIR$/hangen.java.iml" />
     </modules>
   </component>
 </project>
