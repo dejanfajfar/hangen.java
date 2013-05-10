@@ -8,6 +8,7 @@ import com.fajfar.hangen.java.data.SimpleClassB;
 import org.junit.Before;
 import org.junit.Test;
 
+import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
@@ -36,5 +37,10 @@ public class GivenAValidSimpleTransformationIdentifier {
         }catch (NullPointerException nullPointerException){
             assertThat(nullPointerException.getMessage(), is(ErrorMessages.SOURCE_TYPE_NULL.getResource()));
         }
+    }
+
+    @Test
+    public void when_getSourceType_Then_SimpleClassATypeReturned(){
+        assertThat(identifier.getSourceType(), instanceOf(SimpleClassA.class));
     }
 }

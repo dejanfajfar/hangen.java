@@ -8,6 +8,13 @@ public class SimpleTransformationIdentifier implements TransformationIdentifier 
     private Type sourceType;
     private Type destinationType;
 
+    /**
+     * Creates a new instance of the simple transformation identifier
+     * @param sourceType
+     * The source type from which we are taking the data for the target
+     * @param destinationType
+     * The destination type where the source data is mapped to.
+     */
     public SimpleTransformationIdentifier(Type sourceType, Type destinationType)
     {
         setSourceType(sourceType);
