@@ -2,11 +2,9 @@ package com.fajfar.hangen.java;
 
 import com.fajfar.hangen.java.ResourceBundles.ErrorMessages;
 
-import java.lang.reflect.Type;
-
 public class SimpleTransformationIdentifier implements TransformationIdentifier {
-    private Type sourceType;
-    private Type destinationType;
+    private Class sourceType;
+    private Class destinationType;
 
     /**
      * Creates a new instance of the simple transformation identifier
@@ -15,35 +13,35 @@ public class SimpleTransformationIdentifier implements TransformationIdentifier 
      * @param destinationType
      * The destination type where the source data is mapped to.
      */
-    public SimpleTransformationIdentifier(Type sourceType, Type destinationType)
+    public SimpleTransformationIdentifier(Class sourceType, Class destinationType)
     {
         setSourceType(sourceType);
         setDestinationType(destinationType);
     }
 
-    public Type getSourceType() {
+    public Class getSourceType() {
         return sourceType;
     }
 
-    public void setSourceType(final Type source) {
+    public void setSourceType(final Class source) {
         if(source == null){
             throw new NullPointerException(ErrorMessages.SOURCE_TYPE_NULL.getResource());
         }
         sourceType = source;
     }
 
-    public Type getDestinationType() {
+    public Class getDestinationType() {
         return destinationType;
     }
 
-    public void setDestinationType(final Type destination) {
+    public void setDestinationType(final Class destination) {
         if(destination == null){
             throw new NullPointerException(ErrorMessages.DESTINATION_TYPE_NULL.getResource());
         }
         destinationType = destination;
     }
 
-    public Boolean isSameAs(Type source, Type destination) {
+    public Boolean isSameAs(Class source, Class destination) {
         if(source == null){
             throw new NullPointerException(ErrorMessages.SOURCE_TYPE_NULL.getResource());
         }

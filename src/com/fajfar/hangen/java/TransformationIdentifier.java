@@ -1,13 +1,11 @@
 package com.fajfar.hangen.java;
 
 
-import java.lang.reflect.Type;
-
 public interface TransformationIdentifier {
-    Type getSourceType();
-    void setSourceType(Type source);
-    Type getDestinationType();
-    void setDestinationType(Type destination);
+    Class getSourceType();
+    void setSourceType(Class source);
+    Class getDestinationType();
+    void setDestinationType(Class destination);
 
-    Boolean isSameAs(Type source, Type destination);
+    Boolean isSameAs(Class source, Class destination);
 }

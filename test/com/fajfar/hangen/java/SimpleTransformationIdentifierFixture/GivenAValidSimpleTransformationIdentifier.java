@@ -8,9 +8,10 @@ import com.fajfar.hangen.java.data.SimpleClassB;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 public class GivenAValidSimpleTransformationIdentifier {
 
@@ -41,6 +42,16 @@ public class GivenAValidSimpleTransformationIdentifier {
 
     @Test
     public void when_getSourceType_Then_SimpleClassATypeReturned(){
-        assertThat(identifier.getSourceType(), instanceOf(SimpleClassA.class));
+        assertEquals(identifier.getSourceType(), SimpleClassA.class);
+    }
+
+    @Test
+    public void when_getDestinationType_Then_SimpleClassBTypeReturned(){
+        assertEquals(identifier.getDestinationType(), SimpleClassB.class);
+    }
+
+    @Test
+    public void when_givenTheCorrectClassParameters_Then_equalityIdentified(){
+        assertTrue(identifier.isSameAs(SimpleClassA.class, SimpleClassB.class));
     }
 }
