@@ -42,12 +42,8 @@ public class SimpleTransformationIdentifier implements TransformationIdentifier 
     }
 
     public Boolean isSameAs(Class source, Class destination) {
-        if(source == null){
-            throw new NullPointerException(ErrorMessages.SOURCE_TYPE_NULL.getResource());
-        }
-        if(destination == null){
-            throw new NullPointerException(ErrorMessages.DESTINATION_TYPE_NULL.getResource());
-        }
+        if(source == null) return false;
+        if(destination == null) return false;
 
         return (sourceType == source) && (destinationType == destination);
     }
