@@ -49,6 +49,20 @@ public class SimpleTransformationIdentifier implements TransformationIdentifier 
             throw new NullPointerException(ErrorMessages.DESTINATION_TYPE_NULL.getResource());
         }
 
-        return (sourceType == sourceType) && (destinationType == destination);
+        return (sourceType == source) && (destinationType == destination);
+    }
+
+    public boolean equals(Object compered){
+        if(compered == null) return false;
+        if(compered == this) return true;
+        if(!(compered instanceof SimpleTransformationIdentifier)) return false;
+
+        SimpleTransformationIdentifier instance = (SimpleTransformationIdentifier) compered;
+        return instance.getDestinationType() == getDestinationType()
+                && instance.getSourceType() == getSourceType();
+    }
+
+    public int hashCode(){
+        return (getSourceType().hashCode() + getDestinationType().hashCode()) % Integer.MAX_VALUE;
     }
 }
