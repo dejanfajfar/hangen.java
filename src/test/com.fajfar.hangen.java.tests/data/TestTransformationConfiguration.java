@@ -1,4 +1,4 @@
-package com.fajfar.hangen.java.data;
+package data;
 
 import com.fajfar.hangen.java.configuration.ManulTransformationConfiguration;
 

@@ -1,10 +1,10 @@
-package com.fajfar.hangen.java.SimpleTransformationIdentifierFixture;
+package SimpleTransformationIdentifierFixture;
 
 import com.fajfar.hangen.java.ResourceBundles.ErrorMessages;
 import com.fajfar.hangen.java.SimpleTransformationIdentifier;
 import com.fajfar.hangen.java.TransformationIdentifier;
-import com.fajfar.hangen.java.data.SimpleClassA;
-import com.fajfar.hangen.java.data.SimpleClassB;
+import data.SimpleClassA;
+import data.SimpleClassB;
 import org.junit.Before;
 import org.junit.Test;
 

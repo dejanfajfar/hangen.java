@@ -3,7 +3,7 @@ package com.fajfar.hangen.java.ResourceBundles;
 import java.util.ResourceBundle;
 
 public enum ResourceBundles {
-    ERROR_MESSAGES("com.fajfar.hangen.java.ResourceBundles.ErrorMessages");
+    ERROR_MESSAGES("ErrorMessages");
 
     private String bundleName;
     ResourceBundles(String bundleName){

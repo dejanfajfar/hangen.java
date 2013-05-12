@@ -1,8 +1,8 @@
-package com.fajfar.hangen.java.SimpleTransformationIdentifierFixture;
+package SimpleTransformationIdentifierFixture;
 
 import com.fajfar.hangen.java.SimpleTransformationIdentifier;
-import com.fajfar.hangen.java.data.SimpleClassA;
-import com.fajfar.hangen.java.data.SimpleClassB;
+import data.SimpleClassA;
+import data.SimpleClassB;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

@@ -1,4 +1,4 @@
-package com.fajfar.hangen.java.data;
+package data;
 
 public class SimpleClassA {
     private int anInt;
