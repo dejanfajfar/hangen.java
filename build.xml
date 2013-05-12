@@ -2,7 +2,7 @@
 <project name="hangen.java" default="all">
   
   
-  <property file="build.xml.properties"/>
+  <property file="build.properties"/>
   <!-- Uncomment the following property if no tests compilation is needed -->
   <!-- 
   <property name="skip.tests" value="true"/>
@@ -221,6 +221,5 @@
   <target name="build.modules" depends="init, clean, compile.module.hangen.java" description="build all modules"/>
   
   <target name="all" depends="build.modules" description="build all"/>
-
   <target name="test" depends="build.modules" description="build all"/>
 </project>
