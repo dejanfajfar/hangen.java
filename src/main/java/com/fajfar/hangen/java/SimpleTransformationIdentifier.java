@@ -25,7 +25,7 @@ public class SimpleTransformationIdentifier implements TransformationIdentifier 
 
     public void setSourceType(final Class source) {
         if(source == null){
-            throw new NullPointerException(ErrorMessages.SOURCE_TYPE_NULL.getResource());
+            throw new NullPointerException(ErrorMessages.sourceTypeNull());
         }
         sourceType = source;
     }
@@ -36,7 +36,7 @@ public class SimpleTransformationIdentifier implements TransformationIdentifier 
 
     public void setDestinationType(final Class destination) {
         if(destination == null){
-            throw new NullPointerException(ErrorMessages.DESTINATION_TYPE_NULL.getResource());
+            throw new NullPointerException(ErrorMessages.destinationTypeNull());
         }
         destinationType = destination;
     }

@@ -5,4 +5,8 @@ public class TransformationException extends Exception {
     public TransformationException(String message){
         super(message);
     }
+
+    public TransformationException(String massage, Exception innerException){
+        super(massage, innerException);
+    }
 }

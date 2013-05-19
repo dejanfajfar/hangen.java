@@ -27,7 +27,7 @@ public class GivenAValidSimpleTransformationIdentifier {
         try{
             TransformationIdentifier test = new SimpleTransformationIdentifier(SimpleClassA.class, null);
         }catch (NullPointerException nullPointerException){
-            assertThat(nullPointerException.getMessage(), is(ErrorMessages.DESTINATION_TYPE_NULL.getResource()));
+            assertThat(nullPointerException.getMessage(), is(ErrorMessages.destinationTypeNull()));
         }
     }
 
@@ -36,7 +36,7 @@ public class GivenAValidSimpleTransformationIdentifier {
         try{
             TransformationIdentifier test = new SimpleTransformationIdentifier(null, SimpleClassB.class);
         }catch (NullPointerException nullPointerException){
-            assertThat(nullPointerException.getMessage(), is(ErrorMessages.SOURCE_TYPE_NULL.getResource()));
+            assertThat(nullPointerException.getMessage(), is(ErrorMessages.sourceTypeNull()));
         }
     }
 
