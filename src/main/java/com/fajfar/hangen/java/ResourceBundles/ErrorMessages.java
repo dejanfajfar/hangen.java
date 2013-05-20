@@ -35,4 +35,16 @@ public class ErrorMessages {
     public static final String transformationProviderNotFound(Class sourceType, Class destinationType){
         return String.format(bundle.getString("TRANSFORMATION_NOT_FOUND"), sourceType.getName(), destinationType.getName());
     }
+
+    public static final String nullTransformationConfigurationGiven(){
+        return bundle.getString("NULL_TRANSFORMATION_CONFIGURATION_GIVEN");
+    }
+
+    public static final String noTransformationsDefined(){
+        return bundle.getString("NO_TRANSFORMATIONS_CONFIGURED");
+    }
+
+    public static final String sourceInstanceNullInTransformaation(Class source, Class destiantion){
+        return String.format(bundle.getString("SOURCE_INSTANCE_NULL"), source.getName(), destiantion.getName());
+    }
 }

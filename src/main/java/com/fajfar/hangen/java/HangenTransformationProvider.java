@@ -1,19 +1,26 @@
 package com.fajfar.hangen.java;
 
+import com.fajfar.hangen.java.Exceptions.HangenInitializationException;
 import com.fajfar.hangen.java.Exceptions.TransformationException;
 import com.fajfar.hangen.java.ResourceBundles.ErrorMessages;
 import com.fajfar.hangen.java.helpers.GenericHelpers;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class HangenTransformationProvider implements TransformationProvider {
     private final Map<TransformationIdentifier, ClassTransformer> transformations;
 
-    public HangenTransformationProvider(){
-        transformations = new HashMap<TransformationIdentifier, ClassTransformer>();
+    public HangenTransformationProvider(TransformationConfigurationCollection configuration) throws HangenInitializationException {
+        if(configuration == null){
+            throw new HangenInitializationException(ErrorMessages.nullTransformationConfigurationGiven());
+        }
+        if(!configuration.anyTransformationsConfigured()){
+            throw new HangenInitializationException(ErrorMessages.noTransformationsDefined());
+        }
+
+        transformations = configuration.getTransformationConfigurations();
     }
 
     public <TypeTo> TypeTo from(Object source) throws TransformationException {

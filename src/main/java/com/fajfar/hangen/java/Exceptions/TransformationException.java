@@ -9,4 +9,8 @@ public class TransformationException extends Exception {
     public TransformationException(String massage, Exception innerException){
         super(massage, innerException);
     }
+
+    public TransformationException(Exception exception){
+        super(exception.getMessage(), exception);
+    }
 }
